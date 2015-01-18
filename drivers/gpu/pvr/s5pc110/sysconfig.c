@@ -250,6 +250,8 @@ PVRSRV_ERROR SysInitialise(IMG_VOID)
 	}
 #endif
 
+	pr_info("[victor]:%s called", __func__);
+
 	eError = OSInitEnvData(&gpsSysData->pvEnvSpecificData);
 	if (eError != PVRSRV_OK)
 	{
@@ -280,6 +282,7 @@ PVRSRV_ERROR SysInitialise(IMG_VOID)
 	/* init device ID's */
 	for(i=0; i<SYS_DEVICE_COUNT; i++)
 	{
+		pr_info("[victor]: gpsSysData init device %d", i);
 		gpsSysData->sDeviceID[i].uiID = i;
 		gpsSysData->sDeviceID[i].bInUse = IMG_FALSE;
 	}

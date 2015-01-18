@@ -62,11 +62,7 @@ IMG_INT CreateProcEntries(IMG_VOID);
 
 IMG_INT CreateProcReadEntry (const IMG_CHAR * name, pvr_read_proc_t handler);
 
-IMG_INT CreateProcEntry(const IMG_CHAR * name, read_proc_t rhandler, write_proc_t whandler, IMG_VOID *data);
-
-IMG_INT CreatePerProcessProcEntry(const IMG_CHAR * name, read_proc_t rhandler, write_proc_t whandler, IMG_VOID *data);
-
-IMG_VOID RemoveProcEntry(const IMG_CHAR * name);
+IMG_VOID RemoveProcEntry(struct proc_dir_entry *entry);
 
 IMG_VOID RemovePerProcessProcEntry(const IMG_CHAR * name);
 
@@ -87,9 +83,8 @@ struct proc_dir_entry* CreateProcEntrySeq (
 								pvr_next_proc_seq_t next_handler, 
 								pvr_show_proc_seq_t show_handler,
 								pvr_off2element_proc_seq_t off2element_handler,
-								pvr_startstop_proc_seq_t startstop_handler,
-								write_proc_t whandler
-							   );
+								pvr_startstop_proc_seq_t startstop_handler
+								);
 
 struct proc_dir_entry* CreatePerProcessProcEntrySeq (
 								const IMG_CHAR* name, 
@@ -97,9 +92,8 @@ struct proc_dir_entry* CreatePerProcessProcEntrySeq (
 								pvr_next_proc_seq_t next_handler, 
 								pvr_show_proc_seq_t show_handler,
 								pvr_off2element_proc_seq_t off2element_handler,
-								pvr_startstop_proc_seq_t startstop_handler,
-								write_proc_t whandler
-							   );
+								pvr_startstop_proc_seq_t startstop_handler
+								);
 
 
 IMG_VOID RemoveProcEntrySeq(struct proc_dir_entry* proc_entry);
